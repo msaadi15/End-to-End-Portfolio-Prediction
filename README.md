@@ -115,7 +115,7 @@ curl http://127.0.0.1:8000/predict -X POST -H "Content-Type: application/json" \
      -d '{"ticker": "AAPL"}'
 curl http://127.0.0.1:8000/models
 ```
-![System Architecture in zenml](zenml.png)
+![System Architecture in zenml](architecture.png)
 
 ### 5) Live monitoring + auto model switching
 ```bash
