@@ -1,0 +1,14 @@
+venv/
+.venv/
+__pycache__/
+*.pyc
+.zen/
+data/raw/*.csv
+data/processed/*.csv
+models_registry/*.pkl
+models_registry/*.json
+!models_registry/.gitkeep
+.DS_Store
+*.egg-info/
+.pytest_cache/
+.env

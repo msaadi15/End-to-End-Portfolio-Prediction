@@ -1,0 +1,44 @@
+# =========================================================
+# Finance MLOps Portfolio Predictor - configuration
+# Edit this file to control the whole pipeline.
+# =========================================================
+
+# Tickers to download & train on (real Yahoo Finance data)
+tickers:
+  - "AAPL"
+  - "MSFT"
+  - "GOOGL"
+  - "SPY"
+
+# Historical range to download. end_date: null means "today"
+start_date: "2015-01-01"
+end_date: null
+
+# Train / test split (time-based, last X% of rows = test set)
+test_size: 0.2
+
+# Trading days used to compute rolling Sharpe in backtests/monitoring
+sharpe_window: 60
+
+# Risk-free rate (annualized) used in Sharpe ratio calculation
+risk_free_rate: 0.02
+
+# --- Champion selection weighting ---
+# Final score = w_rmse * (1 - normalized_rmse) + w_sharpe * normalized_sharpe + w_diracc * dir_acc
+weight_rmse: 0.3
+weight_sharpe: 0.4
+weight_diracc: 0.3
+
+# --- Live monitoring / auto model-switch settings ---
+# If the champion's rolling Sharpe on fresh data drops below this -> trigger switch
+sharpe_drop_threshold: 0.3
+# How often the monitor re-checks live performance (minutes)
+check_interval_minutes: 60
+# API base url the monitor will call to hot-reload the champion after a switch
+api_base_url: "http://127.0.0.1:8000"
+
+# Paths (relative to project root)
+paths:
+  raw_data_dir: "data/raw"
+  processed_data_dir: "data/processed"
+  registry_dir: "models_registry"
