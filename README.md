@@ -20,6 +20,8 @@ End-to-end **Machine Learning + MLOps** system for finance: it downloads **real 
 
 ---
 
+
+
 ## What it does
 
 1. **`src/data/ingest.py`** — downloads real historical OHLCV data for a list of tickers using the free [`yfinance`](https://pypi.org/project/yfinance/) API (Yahoo Finance). No API key needed.
@@ -113,6 +115,7 @@ curl http://127.0.0.1:8000/predict -X POST -H "Content-Type: application/json" \
      -d '{"ticker": "AAPL"}'
 curl http://127.0.0.1:8000/models
 ```
+![System Architecture in zenml](zenml.png)
 
 ### 5) Live monitoring + auto model switching
 ```bash
